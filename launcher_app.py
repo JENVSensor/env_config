@@ -32,10 +32,10 @@ import paho.mqtt.client as mqtt
 THINGSBOARD_HOST = "210.117.143.37"
 PORT = 10061
 # 임의 토큰
-ACCESS_TOKEN = device_info[DEVICE_NUM-1][3]
+ACCESS_TOKEN = device_info[DEVICE_NUM][3]
 import json
 # 임의로 잡아둠
-client_id = device_info[DEVICE_NUM-1][1]
+client_id = device_info[DEVICE_NUM][1]
 
 if __name__ == '__main__':
 
@@ -64,6 +64,7 @@ if __name__ == '__main__':
         try:
             decode_code = msg.payload.decode('utf-8')    
             dict_data = json.loads(decode_code)
+            print(dict_data)
             if dict_data['method'] == 'setValue':           # 센서 보고 주기 설정
                 # print('method is setValue')
                 # print('params (type) : ', type(dict_data['params']))
@@ -87,7 +88,7 @@ if __name__ == '__main__':
                 if dict_data['params']['UPDATE'] != None:
 
                     execute_cmd('rm -r /home/orangepi/env_sensor/env_py_gui')
-                    repo_url = 'https://github.com/env-manager/env_py_gui.git'
+                    repo_url = 'https://github.com/JENVSensor/env_rpc.git'
                     destination_folder = '/home/orangepi/env_sensor/env_py_gui'
                     try:
                         subprocess.check_output(["git", "clone", repo_url, destination_folder], cwd='/tmp')
