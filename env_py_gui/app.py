@@ -15,7 +15,7 @@ import sys
 
 # 나중에 링크 풀어줘야한다.
 from uart_data_thread import UartDataThread
-
+# git Test
  
 sys.path.append('/home/orangepi/env_sensor/info')
 # DEVICE_NUM -> 1               # 1 <= Device 30000000    device_info[0]

@@ -64,6 +64,7 @@ if __name__ == '__main__':
         try:
             decode_code = msg.payload.decode('utf-8')    
             dict_data = json.loads(decode_code)
+            
             print(dict_data)
             if dict_data['method'] == 'setValue':           # 센서 보고 주기 설정
                 # print('method is setValue')
@@ -86,6 +87,7 @@ if __name__ == '__main__':
 
                 #################################################### UPDATE ####################################################
                 if dict_data['params']['UPDATE'] != None:
+                    print('Entering the F/W udpate Mode')
 
                     execute_cmd('rm -r /home/orangepi/env_sensor/env_py_gui')
                     repo_url = 'https://github.com/JENVSensor/env_rpc.git'
@@ -94,7 +96,8 @@ if __name__ == '__main__':
                         subprocess.check_output(["git", "clone", repo_url, destination_folder], cwd='/tmp')
                         print('Process well done')
                         sleep(5)
-                        execute_cmd('reboot')
+                        # 얘만 추가!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        execute_cmd('killall python3 ; python3 /home/orangepi/env_sensor/launcher_app.py')
                     except subprocess.CalledProcessError as e:
                         print(e)
                 
