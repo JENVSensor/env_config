@@ -97,7 +97,7 @@ if __name__ == '__main__':
                         print('Process well done')
                         sleep(5)
                         # 얘만 추가!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        execute_cmd('killall python3 ; python3 /home/orangepi/env_sensor/launcher_app.py')
+                        #execute_cmd('killall python3 ; python3 /home/orangepi/env_sensor/launcher_app.py')
                     except subprocess.CalledProcessError as e:
                         print(e)
                 
