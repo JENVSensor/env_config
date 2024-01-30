@@ -1042,11 +1042,7 @@ class Home(ttk.Frame):
                 # 새로운 계산식을 적용
                 #self.PM1 = (0.554  * original_PM1) + 5.1584
                 self.PM1 = self.controller.PM1
-                if self.PM1 < 0:
-                        self.PM1_label.config(text='...')        
-                else:
-                        self.PM1_label.config(text=int(self.PM1))
-                
+                                
                 #PM25_1 = self.controller.PM25 - self.PM1  # PM2.5에서 PM1을 뺌
                 self.PM25 = self.controller.PM25
                 if self.PM25 < 0:
@@ -1086,7 +1082,11 @@ class Home(ttk.Frame):
                 if self.controller.device_number == 32:
                         self.PM10 += ((self.PM10 - self.PM25) - self.PM1) 
                
-
+                if self.PM1 < 0:
+                        self.PM1_label.config(text='...')        
+                else:
+                        self.PM1_label.config(text=int(self.PM1))
+                        
                 if self.PM10 < 0:
                         self.PM10_label.config(text='...')        
                 else:
