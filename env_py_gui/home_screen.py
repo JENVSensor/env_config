@@ -1044,11 +1044,7 @@ class Home(ttk.Frame):
                 self.PM1 = self.controller.PM1
                                 
                 #PM25_1 = self.controller.PM25 - self.PM1  # PM2.5에서 PM1을 뺌
-                self.PM25 = self.controller.PM25
-                if self.PM25 < 0:
-                        self.PM25_label.config(text='...')        
-                else:
-                        self.PM25_label.config(text=int(self.PM25))
+                self.PM25 = self.controller.PM25                
                 
                 #self.PM10 = ((self.controller.PM10  -PM25_1) - self.PM1)
                 self.PM10 = self.controller.PM10
@@ -1087,6 +1083,11 @@ class Home(ttk.Frame):
                 else:
                         self.PM1_label.config(text=int(self.PM1))
 
+                if self.PM25 < 0:
+                        self.PM25_label.config(text='...')        
+                else:
+                        self.PM25_label.config(text=int(self.PM25))
+                        
                 if self.PM10 < 0:
                         self.PM10_label.config(text='...')        
                 else:
