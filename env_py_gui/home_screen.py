@@ -990,11 +990,7 @@ class Home(ttk.Frame):
                 
 
                 if self.TVOC < 0:
-                        self.TVOC_label.config(text='...')
-                        
-                #elif self.TVOC > 150:
-                #       calculated_value = 0.1542 * self.TVOC + 550.25
-                #       self.TVOC_label.config(text=calculated_value)
+                        self.TVOC_label.config(text='...')                        
                 else:
                         self.TVOC_label.config(text=self.TVOC)
                 
