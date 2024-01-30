@@ -1062,7 +1062,7 @@ class Home(ttk.Frame):
 
                 #23번일 경우
                 if self.controller.device_number == 23:
-                        self.PM1 = self.PM1
+                        self.PM1 = self.PM1 * 0
                         self.PM25 = self.PM25 - self.PM1
                         self.PM10 = self.PM10 - (self.PM25 * 2) / 7 - (self.PM25 / 2)
 
@@ -1086,7 +1086,7 @@ class Home(ttk.Frame):
                         self.PM1_label.config(text='...')        
                 else:
                         self.PM1_label.config(text=int(self.PM1))
-                        
+
                 if self.PM10 < 0:
                         self.PM10_label.config(text='...')        
                 else:
